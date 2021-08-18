@@ -1,4 +1,4 @@
-// const { MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
@@ -6,7 +6,12 @@ module.exports = {
     description: 'Test command',
     async execute(interaction)
     {
-        await interaction.reply('This is a test!');
+        const embed = new MessageEmbed()
+            .addField('Test', 'This is a test', true)
+            .setColor(interaction.client.embedColor)
+            .setFooter('Testing');
+
+        await interaction.reply({ embeds: [embed], ephemeral: false });
     },
     async create(client)
     {
