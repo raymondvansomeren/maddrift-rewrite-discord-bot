@@ -22,7 +22,7 @@ module.exports = {
         const createDate = new Date(member.user.createdTimestamp);
 
         const embed = new MessageEmbed()
-            .setAuthor(`${member.user.username}#${member.user.discriminator}`, member.user.displayAvatarURL(), member.user.displayAvatarURL())
+            .setAuthor(`USER: ${member.user.username}#${member.user.discriminator}`, member.user.displayAvatarURL(), member.user.displayAvatarURL())
             .addField('Created at', `${createDate.toDateString()}`, true)
             .addField('Joined at', `${joinDate.toDateString()}`, true)
             .setColor('#5E202E')

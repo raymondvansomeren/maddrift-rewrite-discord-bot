@@ -7,12 +7,11 @@ module.exports = {
     async execute(interaction)
     {
         const embed = new MessageEmbed()
-            .setTitle('Server info')
-            .addField('Name', `${interaction.guild.name}`)
-            .addField('Members', `${interaction.guild.memberCount}`)
-            .addField('Date of creation', `${interaction.guild.createdAt}`)
+            .setAuthor(`SERVER: ${interaction.guild.name}`, interaction.guild.iconURL())
+            .addField('Members', `${interaction.guild.memberCount}`, true)
+            .addField('Date of creation', `${new Date(interaction.guild.createdTimestamp).toDateString()}`, true)
             .setColor('#5E202E')
-            .setFooter(`${interaction.client.user.username}`, interaction.client.user.defaultAvatarURL);
+            .setFooter(`ID: ${interaction.guild.id}`);
 
         await interaction.reply({ embeds: [embed], ephemeral: false });
     },
