@@ -19,7 +19,7 @@ module.exports = {
 
         if (member === undefined)
         {
-            return interaction.reply({ embeds: [new MessageEmbed().setAuthor('That user couldn\'t be found').setColor(interaction.client.embedColor)] });
+            return interaction.reply({ embeds: [new MessageEmbed().setAuthor('That user couldn\'t be found').setColor(interaction.client.embedColor)], ephemeral: true });
         }
 
         const joinDate = new Date(member.joinedTimestamp);
