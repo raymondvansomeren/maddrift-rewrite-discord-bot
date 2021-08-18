@@ -31,7 +31,7 @@ module.exports = {
             .setDescription(this.description);
         if (client.inDevelopment)
         {
-            await client.guilds.cache.get('785880982837526578')?.commands.create(data);
+            await client.guilds.cache.get(client.developmentServer)?.commands.create(data);
         }
         else
         {
