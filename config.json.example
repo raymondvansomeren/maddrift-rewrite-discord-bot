@@ -2,5 +2,6 @@
     "token": "",
     "inDevelopment": true,
     "developmentServer": "653934064881106944",
-    "invite": "https://discord.com/api/oauth2/authorize?client_id=877610938407198730&permissions=120729496694&scope=applications.commands%20bot"
+    "invite": "https://discord.com/api/oauth2/authorize?client_id=877610938407198730&permissions=120729496694&scope=applications.commands%20bot",
+    "embedColor": "#5E202E"
 }

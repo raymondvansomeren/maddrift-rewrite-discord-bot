@@ -10,7 +10,7 @@ module.exports = {
             .setAuthor(`SERVER: ${interaction.guild.name}`, interaction.guild.iconURL())
             .addField('Members', `${interaction.guild.memberCount}`, true)
             .addField('Date of creation', `${new Date(interaction.guild.createdTimestamp).toDateString()}`, true)
-            .setColor('#5E202E')
+            .setColor(interaction.client.embedColor)
             .setFooter(`ID: ${interaction.guild.id}`);
 
         await interaction.reply({ embeds: [embed], ephemeral: false });

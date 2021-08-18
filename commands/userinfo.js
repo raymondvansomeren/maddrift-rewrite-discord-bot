@@ -17,7 +17,11 @@ module.exports = {
             member = interaction.member;
         }
 
-        // console.log(member);
+        if (member === undefined)
+        {
+            return interaction.reply({ embeds: [new MessageEmbed().setAuthor('That user couldn\'t be found').setColor(interaction.client.embedColor)] });
+        }
+
         const joinDate = new Date(member.joinedTimestamp);
         const createDate = new Date(member.user.createdTimestamp);
 
@@ -25,7 +29,7 @@ module.exports = {
             .setAuthor(`USER: ${member.user.username}#${member.user.discriminator}`, member.user.displayAvatarURL(), member.user.displayAvatarURL())
             .addField('Created at', `${createDate.toDateString()}`, true)
             .addField('Joined at', `${joinDate.toDateString()}`, true)
-            .setColor('#5E202E')
+            .setColor(interaction.client.embedColor)
             .setFooter(`ID: ${member.user.id}`);
 
         if (member._roles.length > 0)

@@ -9,7 +9,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle('Ping')
             .setDescription('---ms')
-            .setColor('#5E202E')
+            .setColor(interaction.client.embedColor)
             .setFooter(`${interaction.client.user.username}`, interaction.client.user.defaultAvatarURL);
 
         // Calculates ping between sending a message and editing it, giving a nice round-trip latency.

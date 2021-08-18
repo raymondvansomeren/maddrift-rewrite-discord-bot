@@ -9,6 +9,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 client.commands = new Collection();
 client.inDevelopment = require('./config.json').inDevelopment;
 client.developmentServer = require('./config.json').developmentServer;
+client.embedColor = require('./config.json').embedColor;
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles)
@@ -25,7 +26,7 @@ client.on('messageCreate', async message =>
 
     if (message.content.toLowerCase() === '!takedown' && message.author.id === client.application?.owner.id)
     {
-        const command = await client.guilds.cache.get('785880982837526578')?.commands.set([]);
+        const command = await client.guilds.cache.get(client.developmentServer)?.commands.set([]);
         console.log(command);
     }
     else if (message.content.toLowerCase() === '!fulltakedown' && message.author.id === client.application?.owner.id)
