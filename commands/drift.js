@@ -12,12 +12,12 @@ module.exports = {
     {
         if (imageCount === 0)
         {
-            await interaction.channel.send('I am sorry, I don\'t have any images...');
+            await interaction.reply('I am sorry, I don\'t have any images...');
         }
         else
         {
             const imageToShow = Math.floor(Math.random() * imageCount) + 1;
-            interaction.channel.send({ embeds: [new MessageEmbed().setAuthor('Here is a random image from our server')], files: [`${imageDir}/${imageToShow}.png`] });
+            interaction.reply({ embeds: [new MessageEmbed().setAuthor('Here is a random image from our server')], files: [`${imageDir}/${imageToShow}.png`] });
         }
     },
     async create(client)
