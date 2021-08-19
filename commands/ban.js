@@ -12,7 +12,7 @@ module.exports = {
         }
         else if (!interaction.guild.me.permissions.has('BAN_MEMBERS'))
         {
-            return interaction.reply({ embeds: [new MessageEmbed().setAuthor('I don\'t have the permissions to unban users').setColor(interaction.client.embedColor)], ephemeral: true });
+            return interaction.reply({ embeds: [new MessageEmbed().setAuthor('I don\'t have the permissions to ban users').setColor(interaction.client.embedColor)], ephemeral: true });
         }
 
         interaction.guild.bans.fetch({ user: interaction.options.get('user').user, force: true })
