@@ -22,9 +22,13 @@ module.exports = {
                 {
                     const embed = new MessageEmbed()
                         .setAuthor(`${interaction.options.get('user').user.username}`, interaction.options.get('user').user.displayAvatarURL())
-                        .addField('Reason', `${interaction.options.get('reason')?.value}`, true)
                         .setColor(interaction.client.embedColor)
                         .setFooter(`Kicked by ${interaction.member.user.username}`, interaction.member.user.displayAvatarURL());
+
+                    if (interaction.options.get('reason'))
+                    {
+                        embed.addField('Reason', `${interaction.options.get('reason')?.value}`, true);
+                    }
 
                     interaction.reply({ embeds: [embed], ephemeral: false });
                 })
