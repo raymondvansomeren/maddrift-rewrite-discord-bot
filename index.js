@@ -22,6 +22,11 @@ for (const file of commandFiles)
 
 client.on('messageCreate', async message =>
 {
+    if (!message.author.bot)
+    {
+        stickyStuff(message);
+    }
+
     if (!client.application?.owner) await client.application?.fetch();
 
     if (message.content.toLowerCase() === '!takedown' && message.author.id === client.application?.owner.id)
@@ -66,5 +71,38 @@ client.once('ready', () =>
     }
     console.log('ready');
 });
+
+// Check for sticky and place on bottom again
+async function stickyStuff(message)
+{
+    if (fs.existsSync(`stickies/${message.channel.toString().replace(/[^\w\s]/gi, '')}.txt`))
+    {
+        fs.readFile(`stickies/${message.channel.toString().replace(/[^\w\s]/gi, '')}.txt`, (err, jsonString) =>
+        {
+            if (err)
+            {
+                return console.log(`File read failed: ${err}`);
+            }
+
+            message.channel.messages.fetch({ limit: 20 })
+                .then((msgs) =>
+                {
+                    msgs.forEach((msg) =>
+                    {
+                        if (msg.embeds[0]?.footer?.text === 'Sticky message' && msg.author.id === message.guild.me.id)
+                        {
+                            msg.delete();
+                        }
+                    });
+                })
+                .catch((e) =>
+                {
+                    console.log(e);
+                });
+
+            message.channel.send({ embeds: [new MessageEmbed().setAuthor(`${jsonString.toString()}`).setColor(client.embedColor).setFooter('Sticky message')] });
+        });
+    }
+}
 
 client.login(token);
