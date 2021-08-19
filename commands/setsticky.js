@@ -55,7 +55,7 @@ module.exports = {
                     return interaction.reply({ embeds: [new MessageEmbed().setAuthor('Failed to set a sticky. Couldn\'t save the contents of the sticky message').setColor(interaction.client.embedColor)], ephemeral: true });
                 }
             });
-            channel.send({ embeds: [new MessageEmbed().setAuthor(`${message}`).setColor(interaction.client.embedColor).setFooter('Sticky message')], ephemeral: true });
+            channel.send({ embeds: [new MessageEmbed().setDescription(`${message}`).setColor(interaction.client.embedColor).setFooter('Sticky message')], ephemeral: true });
         }
         else if (!message)
         {

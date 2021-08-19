@@ -128,7 +128,7 @@ async function stickyStuff(message)
                     console.log(e);
                 });
 
-            message.channel.send({ embeds: [new MessageEmbed().setAuthor(`${jsonString.toString()}`).setColor(client.embedColor).setFooter('Sticky message')] });
+            message.channel.send({ embeds: [new MessageEmbed().setDescription(`${jsonString.toString()}`).setColor(client.embedColor).setFooter('Sticky message')] });
         });
     }
 }
