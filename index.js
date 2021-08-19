@@ -3,7 +3,7 @@
 
 const fs = require('fs');
 
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
 const { token } = require('./config.json');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 client.commands = new Collection();
@@ -39,6 +39,10 @@ client.on('messageCreate', async message =>
 client.on('interactionCreate', async interaction =>
 {
     if (!interaction.isCommand()) return;
+    if (!interaction.inGuild())
+    {
+        return interaction.reply({ embeds: [new MessageEmbed().setAuthor('I don\'t allow commands in my DMs').setColor(interaction.client.embedColor)], ephemeral: true });
+    }
 
     if (!client.commands.has(interaction.commandName)) return;
 
