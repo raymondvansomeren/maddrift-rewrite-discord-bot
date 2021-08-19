@@ -112,7 +112,7 @@ async function stickyStuff(message)
                 return console.log(`File read failed: ${err}`);
             }
 
-            if (message.author.bot && message.embeds[0]?.footer === 'Sticky message') return;
+            if (message.author.bot && message.embeds[0]?.footer.text === 'Sticky message') return;
             message.channel.messages.fetch({ limit: 20 })
                 .then((msgs) =>
                 {
