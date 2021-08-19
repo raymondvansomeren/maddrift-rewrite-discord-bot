@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
-    name: 'server',
+    name: 'serverinfo',
     description: 'Replies with server info',
     async execute(interaction)
     {
