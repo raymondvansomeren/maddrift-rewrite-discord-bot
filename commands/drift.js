@@ -17,7 +17,7 @@ module.exports = {
         else
         {
             const imageToShow = Math.floor(Math.random() * imageCount) + 1;
-            interaction.reply({ embeds: [new MessageEmbed().setAuthor('Here is a random image from our server')], files: [`${imageDir}/${imageToShow}.png`] });
+            interaction.reply({ embeds: [new MessageEmbed().setAuthor('Here is a random image from our server').setColor(interaction.client.embedColor)], files: [`${imageDir}/${imageToShow}.png`] });
         }
     },
     async create(client)
