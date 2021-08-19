@@ -15,33 +15,6 @@ module.exports = {
         const channel = interaction.options.get('channel').channel;
         const message = interaction.options.get('message')?.value;
 
-        // if (fs.existsSync(`stickies/${channel.toString().replace(/[^\w\s]/gi, '')}.txt`))
-        // {
-        //     fs.readFile(`stickies/${channel.toString().replace(/[^\w\s]/gi, '')}.txt`, (err, jsonString) =>
-        //     {
-        //         if (err)
-        //         {
-        //             return console.log(`File read failed: ${err}`);
-        //         }
-
-        //         channel.messages.fetch({ limit: 20 })
-        //             .then((msgs) =>
-        //             {
-        //                 msgs.forEach((msg) =>
-        //                 {
-        //                     if (msg.embeds[0]?.footer?.text === 'Sticky message' && msg.author.id === interaction.guild.me.id)
-        //                     {
-        //                         msg.delete();
-        //                     }
-        //                 });
-        //             })
-        //             .catch((e) =>
-        //             {
-        //                 console.log(e);
-        //             });
-        //     });
-        // }
-
         const embed = new MessageEmbed()
             .setAuthor('Sticky', interaction.client.user.displayAvatarURL())
             .addField('Channel', `<#${channel.id}>`)
