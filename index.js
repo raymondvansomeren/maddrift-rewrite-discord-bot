@@ -32,10 +32,7 @@ for (const file of commandFiles)
 
 client.on('messageCreate', async message =>
 {
-    if (!message.author.bot)
-    {
-        stickyStuff(message);
-    }
+    stickyStuff(message);
 
     if (!client.application?.owner) await client.application?.fetch();
 
@@ -103,6 +100,7 @@ client.once('ready', () =>
 // Check for sticky and place on bottom again
 async function stickyStuff(message)
 {
+    if (message.author.id === message.guild.me.id && message.embeds[0]?.footer?.text === 'Sticky message') return;
     if (fs.existsSync(`stickies/${message.channel.toString().replace(/[^\w\s]/gi, '')}.txt`))
     {
         fs.readFile(`stickies/${message.channel.toString().replace(/[^\w\s]/gi, '')}.txt`, (err, jsonString) =>
@@ -112,7 +110,6 @@ async function stickyStuff(message)
                 return console.log(`File read failed: ${err}`);
             }
 
-            if (message.author.bot && message.embeds[0]?.footer.text === 'Sticky message') return;
             message.channel.messages.fetch({ limit: 20 })
                 .then((msgs) =>
                 {
