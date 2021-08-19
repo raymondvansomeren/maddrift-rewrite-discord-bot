@@ -1,0 +1,1 @@
+e!join event `Exact Car Name` `ingame name` (e.g. e!join event Toyota Mark II JZX100 raymond570)
