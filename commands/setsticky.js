@@ -7,7 +7,7 @@ module.exports = {
     description: 'Set a sticky in a specific channel',
     async execute(interaction)
     {
-        if (!interaction.member?.permissions.has('ADMINISTRATOR'))
+        if (!interaction.member?.permissions.has('MANAGE_CHANNELS'))
         {
             return interaction.reply({ embeds: [new MessageEmbed().setAuthor('You don\'t have the permissions to set sticky messages').setColor(interaction.client.embedColor)], ephemeral: true });
         }
