@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
 const { token, servers } = require('./config.json');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 client.commands = new Collection();
 client.inDevelopment = require('./config.json').inDevelopment;
 client.developmentServer = require('./config.json').developmentServer;
