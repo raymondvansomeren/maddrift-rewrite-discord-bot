@@ -1,0 +1,112 @@
+{
+    "currentNumber": 7,
+    "exemptRoles": [
+        {
+            "id": "654292943468888084",
+            "from": [
+                {
+                    "action": "kick"
+                },
+                {
+                    "action": "ban"
+                }
+            ]
+        },
+        {
+            "id": "654057408540180490",
+            "from": [
+                {
+                    "action": "kick"
+                },
+                {
+                    "action": "ban"
+                }
+            ]
+        }
+    ],
+    "triggers": [
+        {
+            "number": 1,
+            "mode": "contains",
+            "action": "reply",
+            "key": [
+                {
+                    "x": "triggered"
+                },
+                {
+                    "x": "reee"
+                }
+            ],
+            "value": "REEEE, so triggered!!"
+        },
+        {
+            "number": 2,
+            "mode": "exact",
+            "action": "reply",
+            "key": [
+                {
+                    "x": "ty"
+                }
+            ],
+            "value": "OOF"
+        },
+        {
+            "number": 3,
+            "mode": "word",
+            "action": "reply",
+            "key": [
+                {
+                    "x": "em"
+                }
+            ],
+            "value": "Hello em"
+        },
+        {
+            "number": 4,
+            "mode": "word",
+            "action": "delete",
+            "key": [
+                {
+                    "x": "fuck"
+                },
+                {
+                    "x": "fucks"
+                }
+            ],
+            "value": ""
+        },
+        {
+            "number": 5,
+            "mode": "word",
+            "action": "mute",
+            "key": [
+                {
+                    "x": "fag"
+                }
+            ],
+            "value": "You're now automuted, because of the use of a forbidden word"
+        },
+        {
+            "number": 6,
+            "mode": "word",
+            "action": "kick",
+            "key": [
+                {
+                    "x": "kick"
+                }
+            ],
+            "value": ""
+        },
+        {
+            "number": 7,
+            "mode": "word",
+            "action": "ban",
+            "key": [
+                {
+                    "x": "ban"
+                }
+            ],
+            "value": ""
+        }
+    ]
+}

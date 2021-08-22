@@ -10,15 +10,19 @@ client.commands = new Collection();
 client.inDevelopment = require('./config.json').inDevelopment;
 client.developmentServer = require('./config.json').developmentServer;
 client.embedColor = require('./config.json').embedColor;
+client.logChannel = require('./config.json').logChannelID;
 
 const rp = require('request-promise');
 const rpErrors = require('request-promise/errors');
 let highest = 0;
 
+client.triggersChanged = true;
+client.triggers = undefined;
+
 const serverStats = {
-    guildID: '555749267667550251',
-    totalUsersID: '661764105170059285',
-    FiveM: '662074411180097560',
+    guildID: require('./config.json').guildID,
+    totalUsersID: require('./config.json').channelForTotalGuildMembersID,
+    FiveM: require('./config.json').FiveMChannelID,
 };
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -34,18 +38,20 @@ client.on('messageCreate', async message =>
 {
     stickyStuff(message);
 
-    if (!client.application?.owner) await client.application?.fetch();
+    handleTriggers.execute(client, message);
 
-    if (message.content.toLowerCase() === '!takedown' && message.author.id === client.application?.owner.id)
-    {
-        const command = await client.guilds.cache.get(client.developmentServer)?.commands.set([]);
-        console.log(command);
-    }
-    else if (message.content.toLowerCase() === '!fulltakedown' && message.author.id === client.application?.owner.id)
-    {
-        const command = await client.application?.commands.set([]);
-        console.log(command);
-    }
+    // if (!client.application?.owner) await client.application?.fetch();
+
+    // if (message.content.toLowerCase() === '!takedown' && message.author.id === client.application?.owner.id)
+    // {
+    //     const command = await client.guilds.cache.get(client.developmentServer)?.commands.set([]);
+    //     console.log(command);
+    // }
+    // else if (message.content.toLowerCase() === '!fulltakedown' && message.author.id === client.application?.owner.id)
+    // {
+    //     const command = await client.application?.commands.set([]);
+    //     console.log(command);
+    // }
 });
 
 client.on('interactionCreate', async interaction =>
@@ -146,9 +152,9 @@ function allTimeHigh(file)
 async function setMemberCountVisual()
 {
     const guild = client.guilds.cache.find(g => g.id === serverStats.guildID);
-    const memberCount = guild.memberCount;
+    const memberCount = guild?.memberCount;
 
-    (await guild.channels.fetch(serverStats.totalUsersID)).setName(`Member count: ${memberCount}`);
+    (await guild?.channels.fetch(serverStats.totalUsersID))?.setName(`Member count: ${memberCount}`);
 
     client.user.setActivity(`over ${memberCount} people`, { type: 'WATCHING' });
 }
@@ -226,5 +232,7 @@ async function getServerStatus(ip, title, link, public)
         return { 'title': title, 'ip': ip, 'online': false, 'players': '0', 'link': link, 'public': public };
     });
 }
+
+const handleTriggers = require('./modules/handletriggers.js');
 
 client.login(token);
