@@ -1,11 +1,15 @@
 {
     "token": "",
-    "inDevelopment": true,
+    "inDevelopment": false,
     "developmentServer": "653934064881106944",
     "invite": "https://discord.com/api/oauth2/authorize?client_id=877610938407198730&permissions=120729496694&scope=applications.commands%20bot",
     "embedColor": "#5E202E"
     "servers": [
         {"title": "[AU] Track Server #1", "ip": "x.x.x.x:30120", "public": true, "link": "x.x.x"},
     ],
-    "channel": "662074411180097560"
+    "channel": "662074411180097560",
+    "guildID": "555749267667550251",
+    "channelForTotalGuildMembersID": "661764105170059285",
+    "FiveMChannelID": "662074411180097560",
+    "logChannelID": "879080892281282620"
 }
