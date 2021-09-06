@@ -38,16 +38,17 @@ client.on('messageCreate', async message =>
 {
     stickyStuff(message);
 
-    handleTriggers.execute(client, message);
+    // TODO finish triggers
+    // handleTriggers.execute(client, message);
 
     // if (!client.application?.owner) await client.application?.fetch();
 
-    // if (message.content.toLowerCase() === '!takedown' && message.author.id === client.application?.owner.id)
+    // if (message.content.toLowerCase() === '!takedown')// && message.author.id === client.application?.owner.id)
     // {
     //     const command = await client.guilds.cache.get(client.developmentServer)?.commands.set([]);
     //     console.log(command);
     // }
-    // else if (message.content.toLowerCase() === '!fulltakedown' && message.author.id === client.application?.owner.id)
+    // else if (message.content.toLowerCase() === '!fulltakedown')// && message.author.id === client.application?.owner.id)
     // {
     //     const command = await client.application?.commands.set([]);
     //     console.log(command);
@@ -106,7 +107,7 @@ client.once('ready', () =>
 // Check for sticky and place on bottom again
 async function stickyStuff(message)
 {
-    if (message.author.id === message.guild.me.id && message.embeds[0]?.footer?.text === 'Sticky message') return;
+    if (message.embeds[0]?.footer?.text === 'Sticky message') return;
     if (fs.existsSync(`stickies/${message.channel.toString().replace(/[^\w\s]/gi, '')}.txt`))
     {
         fs.readFile(`stickies/${message.channel.toString().replace(/[^\w\s]/gi, '')}.txt`, (err, jsonString) =>
