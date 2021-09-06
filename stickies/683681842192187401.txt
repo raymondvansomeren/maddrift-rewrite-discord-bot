@@ -1,2 +1,10 @@
-Content Creator's can now post their streams/videos of Mad Drift ONLY. No mentions are allowed. To get the Content Creator role, make sure you (Original creator of account) have 100+ followers on a social media platform (except TikTok) and proceed to open a ticket in <#879013486179520612> to get the role, you'll also need to have posted Mad Drift content over the span of 2 weeks.
-TikTok is an exception. You need at least 1000 followers in order to get content creator role
+Content Creators can post their stream/videos of Mad Drift **ONLY** in here (no social media accounts, only videos and streams).
+No mentions allowed (except for giving credit where credit is due).
+To get the `Content Creator` role, make sure you meet the requirements:
+- __Followers on the account where you post Mad Drift content (don't need to have the amounts on all of your socials, just the one where you post Mad Drift content)__:
+-- 2000 on TikTok
+-- 1000 on Instagram
+-- or 500 on any other platform
+- __Content of Mad Drift over the past 2 weeks/14 days__
+
+If you meet these requirements, then you can open a ticket in <#879013486179520612> for a review
