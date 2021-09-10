@@ -92,6 +92,7 @@ client.once('ready', () =>
     // Retrieve highest amount of players from file
     highest = allTimeHigh('allTimeHigh.txt');
 
+    setMemberCountVisual();
     setInterval(setMemberCountVisual, 330000);
 
     setInterval(showFiveMServerInfo, 10000);
