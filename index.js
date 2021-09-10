@@ -76,23 +76,23 @@ client.on('interactionCreate', async interaction =>
     }
 });
 
-client.on('guildMemberAdd', member =>
-{
-    if (member.guild.id !== serverStats.guildID) return;
-    setMemberCountVisual();
-});
-client.on('guildMemberRemove', member =>
-{
-    if (member.guild.id !== serverStats.guildID) return;
-    setMemberCountVisual();
-});
+// client.on('guildMemberAdd', member =>
+// {
+//     if (member.guild.id !== serverStats.guildID) return;
+//     setMemberCountVisual();
+// });
+// client.on('guildMemberRemove', member =>
+// {
+//     if (member.guild.id !== serverStats.guildID) return;
+//     setMemberCountVisual();
+// });
 
 client.once('ready', () =>
 {
     // Retrieve highest amount of players from file
     highest = allTimeHigh('allTimeHigh.txt');
 
-    setMemberCountVisual();
+    setInterval(setMemberCountVisual, 330000);
 
     setInterval(showFiveMServerInfo, 10000);
 
