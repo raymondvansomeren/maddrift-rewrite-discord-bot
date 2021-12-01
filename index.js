@@ -37,6 +37,7 @@ for (const file of commandFiles)
 client.on('messageCreate', async message =>
 {
     stickyStuff(message);
+    removeLogEmbed(message);
 
     // TODO finish triggers
     // handleTriggers.execute(client, message);
@@ -137,6 +138,17 @@ async function stickyStuff(message)
             message.channel.send({ embeds: [new MessageEmbed().setDescription(`${jsonString.toString()}`).setColor(client.embedColor).setFooter('Sticky message')] });
         });
     }
+}
+
+async function removeLogEmbed(message)
+{
+    // Remove message is it has the right channel id in the footer
+    if (!message.embeds[0]?.footer?.text.includes('661764105170059285')) return; // Member count voice channel
+    message.delete()
+        .catch((e) =>
+        {
+            console.error(e);
+        });
 }
 
 function allTimeHigh(file)
