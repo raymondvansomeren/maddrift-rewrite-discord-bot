@@ -1,3 +1,0 @@
-start screenshot-basic
-start discord-screenshot
-screenshot -1

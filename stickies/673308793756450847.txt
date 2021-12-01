@@ -1,0 +1,1 @@
+If your VIP is not working ingame try relinking your FiveM and Discord. If you're unsure how to do this type ?link
