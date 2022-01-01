@@ -5,7 +5,7 @@ const logger = require('../modules/logger.js');
 
 module.exports = {
     name: 'kicknewaccounts',
-    description: 'This will kick all new accounts that joined in the last 2 hours',
+    description: 'This will kick all new accounts that joined in the last 6 hours',
     async execute(interaction)
     {
         if (!interaction.member?.permissions.has('KICK_MEMBERS'))
@@ -24,7 +24,7 @@ module.exports = {
                 new_map = members.filter((member) =>
                 {
                     const memberJoined = new Date(member.joinedTimestamp).getTime();
-                    const joinedAfter = new Date(Date.now() - 7200000).getTime(); // 7200000 is 2 hours
+                    const joinedAfter = new Date(Date.now() - 21600000).getTime(); // 21600000 is 6 hours
                     const memberAccountAge = new Date(member.user.createdTimestamp).getTime();
                     const createdAfter = new Date(Date.now() - 259200000).getTime(); // 259200000 is 72 hours
                     // logger.error();
